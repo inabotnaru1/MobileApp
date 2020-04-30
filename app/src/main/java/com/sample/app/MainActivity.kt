@@ -3,8 +3,7 @@ package com.sample.app
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.sample.app.api.MainApiActivity
-import com.sample.app.firebase.tabs.TabsActivity
+import com.sample.app.tabs_screens.tabs.TabsActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

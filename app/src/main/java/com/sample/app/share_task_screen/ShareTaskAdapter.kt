@@ -1,4 +1,4 @@
-package com.sample.app.api
+package com.sample.app.share_task_screen
 
 import android.util.Log.d
 import android.view.LayoutInflater
@@ -7,9 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.sample.app.R
+import com.sample.app.model.User
 import kotlinx.android.synthetic.main.data_row.view.*
 
-class DataAdapter (private val data: List<SpecificData>):RecyclerView.Adapter<DataAdapter.ViewHolder>() {
+class ShareTaskAdapter (private val data: List<User>):RecyclerView.Adapter<ShareTaskAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val name: TextView = itemView.name

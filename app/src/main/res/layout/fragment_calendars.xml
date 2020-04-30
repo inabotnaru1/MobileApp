@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".firebase.tabs.fragments.CalendarFragment">
+    tools:context=".tabs_screens.tabs.fragments.CalendarFragment">
 
     <CalendarView
         android:id="@+id/simpleCalendarView"

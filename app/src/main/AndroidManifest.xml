@@ -12,15 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".api.MainApiActivity"
+            android:name=".share_task_screen.ShareTaskActivity"
             android:label="@string/title_activity_main_api"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".firebase.TaskCreation"
+            android:name=".create_task_screen.CreateTaskActivity"
             android:label="@string/title_activity_task_creation"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".firebase.tabs.TabsActivity"
+            android:name=".tabs_screens.tabs.TabsActivity"
             android:theme="@style/App.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>

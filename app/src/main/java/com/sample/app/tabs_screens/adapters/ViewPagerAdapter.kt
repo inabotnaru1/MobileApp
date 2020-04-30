@@ -1,11 +1,11 @@
-package com.sample.app.firebase.tabs.adapters
+package com.sample.app.tabs_screens.adapters
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import com.sample.app.firebase.tabs.fragments.CommunityFragment
-import com.sample.app.firebase.tabs.fragments.TasksFragment
-import com.sample.app.firebase.tabs.fragments.CalendarFragment
+import com.sample.app.tabs_screens.tabs.fragments.CommunityFragment
+import com.sample.app.tabs_screens.tabs.fragments.TasksFragment
+import com.sample.app.tabs_screens.tabs.fragments.CalendarFragment
 
 
 class ViewPagerAdapter(fragmentManager: FragmentManager):

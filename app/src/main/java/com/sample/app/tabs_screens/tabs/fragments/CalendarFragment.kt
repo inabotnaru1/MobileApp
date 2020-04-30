@@ -1,4 +1,4 @@
-package com.sample.app.firebase.tabs.fragments
+package com.sample.app.tabs_screens.tabs.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

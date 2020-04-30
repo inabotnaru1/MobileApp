@@ -1,4 +1,4 @@
-package com.sample.app.firebase.tabs.fragments
+package com.sample.app.tabs_screens.tabs.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -9,15 +9,15 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.*
 import com.sample.app.R
-import com.sample.app.firebase.adapters.FeedRecyclerViewAdapter
-import com.sample.app.firebase.models.Feed
+import com.sample.app.tabs_screens.adapters.FeedRecyclerViewAdapter
+import com.sample.app.model.Task
 import kotlinx.android.synthetic.main.fragment_tasks.view.*
 
-class TasksFragment: Fragment() {
+class TasksFragment: Fragment(){
 
     private lateinit var adapter: FeedRecyclerViewAdapter
     lateinit var ref : DatabaseReference
-    lateinit var taskList : MutableList<Feed>
+    lateinit var taskList : MutableList<Task>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,28 +50,26 @@ class TasksFragment: Fragment() {
 
         ref = FirebaseDatabase.getInstance().getReference("tasks")
 
-        ref.addValueEventListener(object :ValueEventListener {
+        ref.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
             }
 
             override fun onDataChange(p0: DataSnapshot) {
                 if (p0.exists()) {
                     for (t in p0.children){
-                        val task = t.getValue(Feed::class.java)
+                        val task = t.getValue(Task::class.java)
 
                         taskList.add(task!!)
                     }
 
-                   adapter.notifyDataSetChanged()
+                    adapter.notifyDataSetChanged()
                 }
             }
         })
-//        taskList;
         adapter = FeedRecyclerViewAdapter(context, taskList)
     }
 
 }
-
 
 
