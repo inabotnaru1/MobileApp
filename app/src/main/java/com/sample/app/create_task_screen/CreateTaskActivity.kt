@@ -1,5 +1,7 @@
 package com.sample.app.create_task_screen
 
+
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
@@ -8,16 +10,16 @@ import androidx.appcompat.app.AppCompatActivity
 import com.sample.app.R
 import com.sample.app.model.Task
 import com.sample.app.tabs_screens.tabs.TabsActivity
-
-
 import kotlinx.android.synthetic.main.activity_task_creation.*
 import kotlinx.android.synthetic.main.content_task_creation.*
+
 
 class CreateTaskActivity : AppCompatActivity() ,
     CreateTaskView {
 
     lateinit var editTaskTitle : EditText
     lateinit var editTaskDeadline : EditText
+    var classContext = this
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,6 +46,7 @@ class CreateTaskActivity : AppCompatActivity() ,
     override fun onTaskCreationError() {
         Toast.makeText(applicationContext, "Task Wasn't Created", Toast.LENGTH_LONG).show()
     }
+
 
 }
 

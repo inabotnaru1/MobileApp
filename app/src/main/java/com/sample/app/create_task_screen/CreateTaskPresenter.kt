@@ -4,24 +4,21 @@ import android.content.Context
 import android.widget.EditText
 import com.google.firebase.database.FirebaseDatabase
 import com.sample.app.model.Task
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class CreateTaskPresenter(context: Context) {
     private val view = context as CreateTaskView
 
     fun saveTask(editTaskDeadline : EditText, editTaskTitle : EditText){
-        var success = true
         val title = editTaskTitle.text.toString().trim()
         val deadline = editTaskDeadline.text.toString().trim();
 
-        if (title.isEmpty()){
-            editTaskTitle.error = "Please enter task title"
-            success = false
-        }
+        val success = checkData(title, deadline)
 
-        if (deadline.isEmpty()){
-            editTaskDeadline.error = "Please enter task deadline"
-            success = false
-
+        if (!checkData(title, deadline)){
+            editTaskTitle.error = "Incorrect Data"
         }
 
         val ref = FirebaseDatabase.getInstance().getReference("tasks")
@@ -36,5 +33,13 @@ class CreateTaskPresenter(context: Context) {
         else {
             view.onTaskCreationError()
         }
+    }
+
+    fun checkData(title: String, deadline: String): Boolean{
+
+        if (title.isEmpty() || deadline.isEmpty() ){
+           return false
+        }
+        return true
     }
 }

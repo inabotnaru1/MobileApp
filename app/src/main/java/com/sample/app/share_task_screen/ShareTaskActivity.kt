@@ -21,15 +21,28 @@ class ShareTaskActivity : AppCompatActivity() , ShareTaskView{
     }
 
     override fun onDataCopmpleteFromApi(users: List<User>) {
-        apiRecyclerView.apply {
-            layoutManager = LinearLayoutManager(this@ShareTaskActivity)
-            adapter = ShareTaskAdapter(users)
+        if (isValidList(users)){
+            apiRecyclerView.apply {
+                layoutManager = LinearLayoutManager(this@ShareTaskActivity)
+                adapter = ShareTaskAdapter(users)
+            }
         }
     }
 
     override fun onDataErrorFromApi(throwable: Throwable) {
         error("error ------> ${throwable.localizedMessage}")
     }
+
+    fun isValidList(users: List<User>): Boolean{
+        var valid = true
+        for (user in users){
+            if (user.email.isEmpty() || user.name.isEmpty()) {
+                valid = false
+            }
+        }
+        return valid
+    }
+
 
 
 }
