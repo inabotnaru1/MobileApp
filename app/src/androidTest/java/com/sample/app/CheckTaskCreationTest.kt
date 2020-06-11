@@ -22,7 +22,7 @@ import org.junit.runner.RunWith
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 @RunWith(AndroidJUnit4::class)
-class ExampleInstrumentedTest {
+class CheckTaskCreationTest {
     @Test
     fun appLaunchesSuccessfully() {
         ActivityScenario.launch(MainActivity::class.java)
@@ -37,7 +37,7 @@ class ExampleInstrumentedTest {
     }
 
     @Test
-    fun onLaunchCheckButtonIsDisplaye() {
+    fun onTaskCreation() {
         ActivityScenario.launch(CreateTaskActivity::class.java)
 
         onView(withId(R.id.taskDeadline))
